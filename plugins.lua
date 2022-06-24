@@ -24,5 +24,6 @@ Plug('L3MON4D3/LuaSnip')
 Plug('saadparwaiz1/cmp_luasnip')
 Plug('numToStr/Comment.nvim')
 Plug('rust-lang/rust.vim')
+Plug('williamboman/nvim-lsp-installer')
 vim.call('plug#end')
 
