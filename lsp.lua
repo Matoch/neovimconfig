@@ -26,6 +26,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<leader>dl', "<cmd>Telescope diagnostics<cr>", bufopts)
 end
 
+vim.g.rustfmt_autosave = 1
 require('lspconfig')['rust_analyzer'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
