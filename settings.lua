@@ -31,3 +31,7 @@ vim.opt.showbreak = '^'
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/nvimundodir"
 vim.opt.undofile = true
 vim.wo.signcolumn = 'yes:1'
+
+vim.cmd("colorscheme gruvbox")
+vim.cmd('highlight WinSeparator guibg=None')
+vim.cmd('let g:rainbow_active = 1')
