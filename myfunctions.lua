@@ -26,3 +26,8 @@ function ToggleCopyMode()
       vim.g.cpmode = false
     end
 end
+-- Print function to inspect neovim objects
+function P(v)
+   print(vim.inspect(v))
+   return v
+end

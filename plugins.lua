@@ -1,29 +1,34 @@
-local Plug = vim.fn['plug#']
-vim.call('plug#begin', '~/.vim/plugged')
-Plug('airblade/vim-gitgutter')
-Plug('autozimu/LanguageClient-neovim', { branch = 'next', ['do'] = 'bash install.sh'})
-Plug('frazrepo/vim-rainbow')
-Plug('gruvbox-community/gruvbox')
-Plug('junegunn/fzf')
-Plug('machakann/vim-highlightedyank')
-Plug('neovim/nvim-lspconfig')
-Plug('nvim-lua/plenary.nvim')
-Plug('nvim-lua/popup.nvim')
-Plug('nvim-telescope/telescope.nvim')
-Plug('nvim-telescope/telescope-fzf-native.nvim', {['do']= 'make' })
-Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'})
-Plug('sk1418/join')
-Plug('ThePrimeagen/harpoon')
-Plug('tpope/vim-fugitive')
-Plug('tpope/vim-surround')
-Plug('hrsh7th/nvim-cmp')
-Plug('hrsh7th/cmp-nvim-lsp')
-Plug('hrsh7th/cmp-buffer')
-Plug('hrsh7th/cmp-path')
-Plug('L3MON4D3/LuaSnip')
-Plug('saadparwaiz1/cmp_luasnip')
-Plug('numToStr/Comment.nvim')
-Plug('rust-lang/rust.vim')
-Plug('williamboman/nvim-lsp-installer')
-vim.call('plug#end')
+local fn = vim.fn
+local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+if fn.empty(fn.glob(install_path)) > 0 then
+  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+end
 
+return require('packer').startup(function(use)
+  use 'airblade/vim-gitgutter'
+  use {'autozimu/LanguageClient-neovim', { branch = 'next', ['do'] = 'bash install.sh'}}
+  use 'frazrepo/vim-rainbow'
+  use 'gruvbox-community/gruvbox'
+  use 'junegunn/fzf'
+  use 'machakann/vim-highlightedyank'
+  use 'neovim/nvim-lspconfig'
+  use 'nvim-lua/plenary.nvim'
+  use 'nvim-lua/popup.nvim'
+  use 'nvim-telescope/telescope.nvim'
+  use {'nvim-telescope/telescope-fzf-native.nvim', {['do']= 'make' }}
+  use {'nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'}}
+  use 'sk1418/join'
+  use 'ThePrimeagen/harpoon'
+  use 'tpope/vim-fugitive'
+  use 'tpope/vim-surround'
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'L3MON4D3/LuaSnip'
+  use 'saadparwaiz1/cmp_luasnip'
+  use 'numToStr/Comment.nvim'
+  if packer_bootstrap then
+    require('packer').sync()
+  end
+end)
