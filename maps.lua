@@ -25,4 +25,5 @@ vim.keymap.set("v", '>', '>gv', {})
 
 vim.api.nvim_set_keymap('n', '<F5>', ':NERDTreeToggle<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>ll', '<cmd>lua LazyToggle()<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<Leader>cm', '<cmd>lua ToggleCopyMode()<CR>', {noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', '<Leader>cm', '<cmd>lua ToggleCopyMode()<CR>', {noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>cm', '<cmd>lua require"copymode".toggle()<CR>', {noremap = true, silent = true })
