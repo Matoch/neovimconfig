@@ -28,6 +28,7 @@ return require('packer').startup(function(use)
   use {'nvim-treesitter/nvim-treesitter', run=':TSUpdate'}
   use {'nvim-treesitter/playground'}
   use 'sk1418/join'
+  use 'goolord/alpha-nvim'
   use 'ThePrimeagen/harpoon'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-surround'
