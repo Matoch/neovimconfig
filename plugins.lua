@@ -4,6 +4,15 @@ if fn.empty(fn.glob(install_path)) > 0 then
   packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
 
+require('packer').init({
+	display = {
+		open_fn = function()
+			return require("packer.util").float({ border = "rounded" })
+		end,
+	},
+})
+
+
 return require('packer').startup(function(use)
   use 'airblade/vim-gitgutter'
   use {'autozimu/LanguageClient-neovim', branch='next', run='bash install.sh'}
