@@ -4,7 +4,20 @@ if fn.empty(fn.glob(install_path)) > 0 then
   packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
 
-require('packer').init({
+-- Update packages when plugin file is saved
+vim.cmd [[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+  augroup end
+]]
+
+local status_ok, packer = pcall(require, "packer")
+if not status_ok then
+  return
+end
+
+packer.init({
 	display = {
 		open_fn = function()
 			return require("packer.util").float({ border = "rounded" })
@@ -13,7 +26,7 @@ require('packer').init({
 })
 
 
-return require('packer').startup(function(use)
+return packer.startup(function(use)
   use 'airblade/vim-gitgutter'
   use {'autozimu/LanguageClient-neovim', branch='next', run='bash install.sh'}
   use 'frazrepo/vim-rainbow'

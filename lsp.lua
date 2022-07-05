@@ -1,4 +1,4 @@
-local status_ok, _ = pcall(require, 'lspconfig')
+local status_ok, lsp = pcall(require, 'lspconfig')
 if not status_ok then
     return
 end
@@ -31,7 +31,7 @@ local on_attach = function(client, bufnr)
 end
 
 vim.g.rustfmt_autosave = 1
-require('lspconfig')['rust_analyzer'].setup{
+lsp['rust_analyzer'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
     settings = {
@@ -40,6 +40,6 @@ require('lspconfig')['rust_analyzer'].setup{
     capabilities = capabilities
 }
 
-require('lspconfig').marksman.setup{}
+lsp.marksman.setup{}
 
-require('lspconfig').gopls.setup{}
+lsp.gopls.setup{}
