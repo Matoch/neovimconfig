@@ -34,6 +34,7 @@ return packer.startup(function(use)
   use 'junegunn/fzf'
   use 'machakann/vim-highlightedyank'
   use 'neovim/nvim-lspconfig'
+  use 'williamboman/nvim-lsp-installer'
   use 'nvim-lua/plenary.nvim'
   use 'nvim-lua/popup.nvim'
   use 'nvim-telescope/telescope.nvim'
