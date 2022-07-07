@@ -9,8 +9,9 @@ keymap('n', '<Leader>fb', [[<Cmd>lua require('telescope.builtin').buffers()<CR>]
 keymap('n', '<Leader>fh', [[<Cmd>lua require('telescope.builtin').help_tags()<CR>]], opts)
 keymap('n', '<Leader>fk', [[<Cmd>lua require('telescope.builtin').keymaps()<CR>]], opts)
 
--- IIQ xml cleanup
-keymap('n', '<Leader>m', [[<Cmd>:1,$s/\(id\\|modified\\|created\)="[^\"]*"[ ]\?//g<CR>]], opts)
+-- IIQ Tools
+keymap('n', '<Leader>irm', [[<Cmd>:1,$s/\(id\\|modified\\|created\)="[^\"]*"[ ]\?//g<CR>]], opts)
+keymap('n', '<Leader>ies', [[<Cmd>:%s/\v^([0-9]*)\|([0-9]*).*$/OR (strm="\1" and class_number="\2")/g<CR><Cmd>:1,%s/\n/ /g<CR><Cmd>:1,$s/^OR/SELECT * from classes where/g<CR>]], opts)
 
 -- Harpoon
 keymap('n', '<Leader>ha', [[<Cmd>lua require('harpoon.mark').add_file()<CR>]], opts)
