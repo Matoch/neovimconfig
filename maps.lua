@@ -50,3 +50,6 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", { noremap = true, silent = true})
 -- Indent while maintaining visual selection
 keymap("v", '<', '<gv', {})
 keymap("v", '>', '>gv', {})
+
+ -- LuaSnip
+vim.keymap.set("n", "<leader><leader>s", "<cmd>source ~/.config/nvim/lua/matoch/luasnip.lua<CR>")

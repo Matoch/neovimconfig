@@ -52,3 +52,8 @@ lsp.sumneko_lua.setup {
   settings = { Lua = { diagnostics = { globals = { 'vim' } } } },
   on_attach = on_attach
 }
+
+lsp.jdtls.setup {
+  filetypes = { "java", "xml" },
+  on_attach = on_attach
+}

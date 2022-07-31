@@ -20,3 +20,9 @@ local function status_line()
   )
 end
 vim.opt.winbar = status_line()
+vim.api.nvim_set_hl(0, 'WinBar', {
+  standout = true,
+})
+vim.api.nvim_set_hl(0, 'WinBarNC', {
+  standout = false,
+})
